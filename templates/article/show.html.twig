@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ article.titre }}{% endblock %}
+
+{% block body %}
+{% include 'header.html.twig' %}
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-4">
+            <h1 class="mt-4">{{ article.titre }}</h1>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item"><a href="{{ path('app_article_fetch') }}">Liste des articles</a></li>
+                <li class="breadcrumb-item active">{{ article.titre }}</li>
+            </ol>
+            <div class="card mb-4">
+                <img class="card-img-top" src="/uploads/images/{{ article.image }}" alt="Image de {{ article.titre }}">
+                <div class="card-body">
+                    <p class="card-text">{{ article.texte }}</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    {% include 'footer.html.twig' %}
+</div>
+{% endblock %}
